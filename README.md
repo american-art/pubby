@@ -9,7 +9,7 @@ e.g., `http://data.crystalbridges.org/` is forwarded to `http://data.americanart
     ```	
     conf:webBase <http://data.americanartcollaborative.org/>
     conf:dataset [
- 	  ...
+        ...
         conf:multiURIMapping [
             conf:multiURIPrefix "cbm";
             conf:multiURIBase "http://data.crystalbridges.org/";

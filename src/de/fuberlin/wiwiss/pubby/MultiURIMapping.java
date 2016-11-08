@@ -16,6 +16,10 @@ public class MultiURIMapping {
 		baseMap.put(base, prefix);
 	}
 
+	public boolean isPrefix(String prefix) {
+		return prefixMap.containsKey(prefix);
+	}
+
 	public String getURIBase(String prefix) {
 		if(prefixMap.containsKey(prefix)) return prefixMap.get(prefix);
 		return null;

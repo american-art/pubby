@@ -142,8 +142,10 @@ public class Dataset {
 		String rURI = unescapeURIDelimiters(relativeWebURI);
 		String prefix = "";
 		int splitIdx = rURI.indexOf("/");
-		if(splitIdx != -1) { // if there exists prefix
+		if(splitIdx != -1) { // if there exists possible prefix
 			prefix = rURI.substring(0, splitIdx);
+		}
+		if(multiURIMapping.isPrefix(prefix)) { // if it is prefix, remove it from relativeURI
 			rURI = rURI.substring(splitIdx + 1);
 		}
 		String datasetURI = getDatasetBase(prefix) + rURI;
