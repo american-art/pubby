@@ -90,20 +90,17 @@ public class Dataset {
 			}
 			dataSource = new ModelDataSource(data);
 		}
-		// multi uri mapping
-		// if(config.hasProperty(CONF.multiURIEnable) && 
-		// 	config.getProperty(CONF.multiURIEnable).getBoolean()) {
-			multiURIMapping = new MultiURIMapping();
-			if (config.hasProperty(CONF.multiURIMapping)) {
-				StmtIterator it = config.listProperties(CONF.multiURIMapping);
-				while (it.hasNext()) {
-					Resource currMapping = it.nextStatement().getResource();
-					String prefix = currMapping.getProperty(CONF.multiURIPrefix).getString();
-					String base = currMapping.getProperty(CONF.multiURIBase).getString();
-					multiURIMapping.add(prefix, base);
-				}
+		// multi-uri mapping
+		multiURIMapping = new MultiURIMapping();
+		if (config.hasProperty(CONF.multiURIMapping)) {
+			StmtIterator it = config.listProperties(CONF.multiURIMapping);
+			while (it.hasNext()) {
+				Resource currMapping = it.nextStatement().getResource();
+				String prefix = currMapping.getProperty(CONF.multiURIPrefix).getString();
+				String base = currMapping.getProperty(CONF.multiURIBase).getResource().getURI();
+				multiURIMapping.add(prefix, base);
 			}
-		// }
+		}
 	}
 
 	public boolean isDatasetURI(String uri) {
@@ -144,9 +141,8 @@ public class Dataset {
 		int splitIdx = rURI.indexOf("/");
 		if(splitIdx != -1) { // if there exists possible prefix
 			prefix = rURI.substring(0, splitIdx);
-		}
-		if(multiURIMapping.isPrefix(prefix)) { // if it is prefix, remove it from relativeURI
-			rURI = rURI.substring(splitIdx + 1);
+			if(multiURIMapping.isPrefix(prefix)) // if it is prefix, remove it from relativeURI
+				rURI = rURI.substring(splitIdx + 1);
 		}
 		String datasetURI = getDatasetBase(prefix) + rURI;
 

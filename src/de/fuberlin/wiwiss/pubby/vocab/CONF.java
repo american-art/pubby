@@ -36,7 +36,6 @@ public class CONF {
 	public static final Property rdfDocumentMetadata = m.createProperty(NS + "rdfDocumentMetadata");
 	public static final Property metadataTemplate = m.createProperty(NS + "metadataTemplate");
 
-	public static final Property multiURIEnable = m.createProperty(NS + "multiURIEnable");
 	public static final Property multiURIMapping = m.createProperty(NS + "multiURIMapping");
 	public static final Property multiURIPrefix = m.createProperty(NS + "multiURIPrefix");
 	public static final Property multiURIBase = m.createProperty(NS + "multiURIBase");

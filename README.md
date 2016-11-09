@@ -12,7 +12,8 @@ e.g., `http://data.crystalbridges.org/` is forwarded to `http://data.americanart
         ...
         conf:multiURIMapping [
             conf:multiURIPrefix "cbm";
-            conf:multiURIBase "http://data.crystalbridges.org/";
+            conf:multiURIBase <http://data.crystalbridges.org/>;
         ];
     ];
     ```
+
