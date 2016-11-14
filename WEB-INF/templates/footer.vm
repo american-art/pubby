@@ -1,0 +1,52 @@
+    </div> <!--/.container-->
+#set ($has_text = false)
+    <div class="footer">
+      <div class="container">
+
+#if ($sparql_endpoint)
+        <div class="row">
+        <!-- This page shows information obtained from the SPARQL endpoint at <a class="sparql-uri" href="$sparql_endpoint">$sparql_endpoint</a>.<br /> -->
+        </div>
+#end
+        <div class="row">
+#if ($rdf_link)
+        <a href="$rdf_link?output=ttl">As Turtle</a> |
+        <a href="$rdf_link?output=xml">As RDF/XML</a>
+#set ($has_text = true)
+#end
+#if ($disco_link)
+#if ($has_text)
+      |
+#end
+        <a href="$disco_link">Browse in Disco</a>
+#set ($has_text = true)
+#end
+#if ($tabulator_link)
+#if ($has_text)
+      |
+#end
+        <a href="$tabulator_link">Browse in Tabulator</a>
+#set ($has_text = true)
+#end
+#if ($openlink_link)
+#if ($has_text)
+      |
+#end
+        <a href="$openlink_link">Browse in OpenLink Browser</a>
+#set ($has_text = true)
+#end
+        </div><!--/.row-->
+
+        <div class="row">
+          <a class="col-xs-12" href="http://americanartcollaborative.org/">American Art Collaborative</a>
+          <div class="col-xs-12">
+            <a href="http://usc-isi-i2.github.io/aac/">Information Integeration Group</a> - 
+            <a href="http://www.isi.edu/">Information Sciences Institute</a>
+          </div>
+        </div>
+
+      </div><!--/.container-->
+    </div><!--/.footer-->
+    <script type="text/javascript" src="${server_base}static/script.js"></script>
+  </body>
+</html>
