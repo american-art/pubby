@@ -46,7 +46,8 @@ public class DataURLServlet extends BaseURLServlet {
 		}
 		
 		// Add owl:sameAs statements referring to the original dataset URI
-		Resource r = description.getResource(webURI);
+		// Resource r = description.getResource(webURI);
+		Resource r = description.getResource(datasetURI);
 		if (resource.getDataset().getAddSameAsStatements()) {
 			r.addProperty(OWL.sameAs, description.createResource(datasetURI));
 		}
@@ -85,7 +86,6 @@ public class DataURLServlet extends BaseURLServlet {
 				new ResourceDescription(resource, description, config).getLabel());
 		resource.getDataset().addDocumentMetadata(description, document);
 		resource.getDataset().addMetadataFromTemplate(description, resource, getServletContext());
-
 
 		ModelResponse server = new ModelResponse(description, request, response);
 		server.serve();

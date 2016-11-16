@@ -39,4 +39,6 @@ public class CONF {
 	public static final Property multiURIMapping = m.createProperty(NS + "multiURIMapping");
 	public static final Property multiURIPrefix = m.createProperty(NS + "multiURIPrefix");
 	public static final Property multiURIBase = m.createProperty(NS + "multiURIBase");
+	public static final Property multiURIName = m.createProperty(NS + "multiURIName");
+	public static final Property multiURIHomepage = m.createProperty(NS + "multiURIHomepage");
 }

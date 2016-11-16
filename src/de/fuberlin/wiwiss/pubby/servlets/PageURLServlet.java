@@ -21,6 +21,8 @@ import de.fuberlin.wiwiss.pubby.Configuration;
 import de.fuberlin.wiwiss.pubby.MappedResource;
 import de.fuberlin.wiwiss.pubby.ResourceDescription;
 
+import de.fuberlin.wiwiss.pubby.MultiURIMapping;
+
 /**
  * A servlet for serving the HTML page describing a resource.
  * Invokes a Velocity template.
@@ -66,6 +68,10 @@ public class PageURLServlet extends BaseURLServlet {
 		context.put("comment", resourceDescription.getComment());
 		context.put("image", resourceDescription.getImageURL());
 		context.put("properties", resourceDescription.getProperties());
+		
+		MultiURIMapping multiURLMapping = resource.getDataset().getMultiURLMapping();
+		context.put("multiurl_name", multiURLMapping.getName(resourceDescription.getURI()));
+		context.put("multiurl_homepage", multiURLMapping.getHomepage(resourceDescription.getURI()));
 		
 		try {
 			Model metadata = ModelFactory.createDefaultModel();

@@ -11,8 +11,10 @@ e.g., `http://data.crystalbridges.org/` is forwarded to `http://data.americanart
     conf:dataset [
         ...
         conf:multiURIMapping [
-            conf:multiURIPrefix "cbm";
-            conf:multiURIBase <http://data.crystalbridges.org/>;
+            conf:multiURIPrefix "cbm"; # required
+            conf:multiURIBase <http://data.crystalbridges.org/>; # required
+            conf:multiURIName "Crystal Bridges Museum of American Art";
+            conf:multiURIHomepage <http://crystalbridges.org/>;
         ];
     ];
     ```

@@ -99,6 +99,10 @@ public class Dataset {
 				String prefix = currMapping.getProperty(CONF.multiURIPrefix).getString();
 				String base = currMapping.getProperty(CONF.multiURIBase).getResource().getURI();
 				multiURIMapping.add(prefix, base);
+				if(currMapping.hasProperty(CONF.multiURIName))
+					multiURIMapping.setName(prefix, currMapping.getProperty(CONF.multiURIName).getString());
+				if(currMapping.hasProperty(CONF.multiURIHomepage))
+					multiURIMapping.setHomepage(prefix, currMapping.getProperty(CONF.multiURIHomepage).getResource().getURI());
 			}
 		}
 	}
@@ -161,6 +165,10 @@ public class Dataset {
 		String uri = multiURIMapping.getURIBase(prefix);
 		if(uri != null) return uri;
 		return config.getProperty(CONF.datasetBase).getResource().getURI();
+	}
+
+	public MultiURIMapping getMultiURLMapping() {
+		return multiURIMapping;
 	}
 	
 	public boolean getAddSameAsStatements() {

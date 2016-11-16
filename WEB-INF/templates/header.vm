@@ -50,6 +50,9 @@
 #if ($uri)
         <h4 class="page-resource-uri">Resource URI: <a href="$uri">$uri</a></h4>
 #end
+#if ($multiurl_name)
+        <h5>Data of <a href="$multiurl_homepage">$multiurl_name</a></h5>
+#end
 #if ($back_uri)
         <p><a href="$back_uri">Back to $back_label</a></p>
 #end
